@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Header from './component/header/Header';
-import Home from './component/body/Home'
-import Footer from './component/footer/Footer';
-import Signin from './component/body/Signin';
+import Layout from './component/layout/Layout';
+import {BrowserRouter} from 'react-router-dom';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Signin />
-    <Header />
-    <Home />
-    <Footer />
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

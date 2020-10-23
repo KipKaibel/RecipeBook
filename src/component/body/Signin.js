@@ -1,7 +1,29 @@
+import Axios from 'axios';
 import React, { Component } from 'react';
+import Home from './../body/Home';
+import  { Redirect } from 'react-router-dom';
+
 
 class Signin extends Component {
+ 
+    state = {
+        user: {
+            email: '',
+            password: '',
+        }
+    }
+
+    
+
+    signin = () =>
+    Axios.post('http://localhost:8080/login', this.state.user)
+    .then(response => {
+       this.props.history.push('/Home');
+    }).catch(error => {
+
+    });
     render() {
+
         return <div>
                 <body className="text-center">
                     <form className="form-signin">
@@ -16,7 +38,8 @@ class Signin extends Component {
                             <input type="checkbox" value="remember-me" /> Remember me
                             </label>
                         </div>
-                        <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        <button onCLick={this.signin} className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        <script> alert("Hello")</script>
                         <p className="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
                     </form>
                 </body>
